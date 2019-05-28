@@ -1,0 +1,25 @@
+.container {
+    display: flex;
+}
+
+
+.navbar {
+    display: flex;
+    margin-left: 50%;
+
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        text-align: center;
+    }
+
+    li {
+        font-family: 'Oswald', sans-serif;
+        display: inline-block;
+    }
+}
+
+.user-block {
+    margin-left: auto;
+}
