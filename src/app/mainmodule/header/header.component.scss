@@ -1,11 +1,20 @@
 .container {
     display: flex;
+    height: 55px;
+    align-items: center;
+    background: -webkit-linear-gradient(to right, #56ab2f, #a8e063); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #56ab2f, #a8e063);
+
+    a:first-child {
+        margin-left: 35px;
+    }
 }
 
 
 .navbar {
     display: flex;
-    margin-left: 50%;
+    margin-left: 40%;
+
 
     ul {
         margin: 0;
@@ -18,8 +27,17 @@
         font-family: 'Oswald', sans-serif;
         display: inline-block;
     }
+
+    li:not(:last-child) {
+        margin-right: 30px;
+    }
 }
 
 .user-block {
     margin-left: auto;
+    margin-right: 4%;
+
+    a:first-child {
+        margin-right: 50px;
+    }
 }
