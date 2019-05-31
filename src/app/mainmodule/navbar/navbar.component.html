@@ -1,8 +1,7 @@
 <div class="container">
-  <div class="card" routerLinkActive='active-link' [routerLinkActiveOptions]="{exact: true}">
-    <a routerLink="/s">Home</a>
-  </div>
-  <div class="card" routerLinkActive='active-link' [routerLinkActiveOptions]="{exact: true}">
-    <a routerLink>ADSA</a>
+  <div class="card" routerLinkActive='active-link' 
+  [routerLinkActiveOptions]="{exact: true}"
+  *ngFor="let genre of getTvGenres">
+    <a [routerLink]="[genre.name, genre.id]">{{genre.name}}</a>
   </div>
 </div>

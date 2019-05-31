@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { TVService } from '../TV.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-navbar',
@@ -6,10 +8,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
+  getTvGenres = [];
 
-  constructor() { }
+  constructor(
+    private tvService: TVService
+  ) { }
 
   ngOnInit() {
+    this.tvService.getGenres().subscribe(data => {
+      this.getTvGenres = data.genres;
+    });
   }
 
 }
