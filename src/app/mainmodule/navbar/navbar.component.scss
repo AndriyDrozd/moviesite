@@ -1,0 +1,27 @@
+.container {
+    background: #2b2b2b;
+    min-height: calc(100vh - 55px);
+    padding: 1px 0 0 0;
+    box-sizing: border-box;
+    font-family: HelveticaNeueLT-Bold,"Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.card {
+    display: flex;
+    height: 48px;
+    padding-left: 10px;
+    align-items: center;
+    color: #CCCCCC;
+    border-left: 5px solid #2b2b2b;
+
+    a {
+        color: #cccccc;
+        text-decoration: none;
+    }
+}
+
+.active-link {
+    background-color: #222;
+    border-left: 5px solid red;
+}
+
