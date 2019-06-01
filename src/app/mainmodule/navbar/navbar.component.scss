@@ -4,6 +4,7 @@
     padding: 1px 0 0 0;
     box-sizing: border-box;
     font-family: HelveticaNeueLT-Bold,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    min-width: 12vw;
 }
 
 .card {
@@ -17,6 +18,11 @@
     a {
         color: #cccccc;
         text-decoration: none;
+    }
+
+    &:hover {
+        background-color: #222;
+        border-left: 5px solid red;
     }
 }
 

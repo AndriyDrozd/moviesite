@@ -9,6 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class NavbarComponent implements OnInit {
   getTvGenres = [];
+  // @LocalStorage() = genres;
 
   constructor(
     private tvService: TVService
@@ -19,5 +20,7 @@ export class NavbarComponent implements OnInit {
       this.getTvGenres = data.genres;
     });
   }
+
+
 
 }
