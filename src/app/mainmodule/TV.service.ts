@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 
+import { TvInterface } from './interfaces/tv-interface';
+
 @Injectable()
 export class TVService {
 
@@ -17,28 +19,12 @@ export class TVService {
     this.region = 'US'
   }
 
-  getTvOnTheAir(page: number): Observable<any> {
-    return this.http.get(`${this.baseUrl}tv/on_the_air?api_key=${this.apiKey}&page=${page}&language=${this.language}`)
-  }
-
-  getTVAiringToday(page: number): Observable<any> {
-    return this.http.get(`${this.baseUrl}tv/airing_today?api_key=${this.apiKey}&page=${page}&language=${this.language}`)
-  }
-
-  getPopularTVShow(page: number): Observable<any> {
-    return this.http.get(`${this.baseUrl}tv/popular?api_key=${this.apiKey}&page=${page}&language=${this.language}`)
-  }
-
-  getTVShow(id: string): Observable<any> {
-    return this.http.get(`${this.baseUrl}tv/${id}?api_key=${this.apiKey}&language=${this.language}`)
-  }
-
   getGenres(): Observable<any> {
-    return this.http.get(`${this.baseUrl}genre/tv/list?api_key=${this.apiKey}&language=${this.language}`)
+    return this.http.get(`${this.baseUrl}genre/movie/list?api_key=${this.apiKey}&language=${this.language}`)
   }
 
-  getTVShowByGenre(id: string): Observable<any> {
-    return this.http.get(`${this.baseUrl}discover/tv?api_key=${this.apiKey}&language=en-US&sort_by=popularity.desc&page=1&timezone=America%2FNew_York&with_genres=${id}&include_null_first_air_dates=false`);
+  getTVShowByGenre(id: string, pageNumber: number = 1): Observable<any> {
+    return this.http.get(`${this.baseUrl}discover/movie?api_key=${this.apiKey}&language=en-US&sort_by=popularity.desc&page=${pageNumber}&timezone=America%2FNew_York&with_genres=${id}&include_null_first_air_dates=false`);
   }
 
 }

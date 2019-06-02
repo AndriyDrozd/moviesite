@@ -1,7 +1,7 @@
 <div class="container">
   <div class="card" routerLinkActive='active-link' 
   [routerLinkActiveOptions]="{exact: true}" 
-  [routerLink]="[genre.name, genre.id]"
+  [routerLink]="[genre.id]"
   *ngFor="let genre of getTvGenres"
   >
     {{genre.name}}
