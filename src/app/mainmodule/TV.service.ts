@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 
-import { TvInterface } from './interfaces/tv-interface';
+
 
 @Injectable()
 export class TVService {

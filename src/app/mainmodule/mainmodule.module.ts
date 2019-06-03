@@ -11,6 +11,7 @@ import { HeaderComponent } from './header/header.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { MaincontentComponent } from './maincontent/maincontent.component';
 import { MainComponent } from './main.component';
+import { ShareModule } from '../share/share.module';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,9 @@ import { MainComponent } from './main.component';
     CommonModule,
     CustomersRoutingModule,
     RouterModule,
-    HttpClientModule
+    HttpClientModule,
+    ShareModule
+
   ], exports: [
     HeaderComponent, 
     NavbarComponent, 

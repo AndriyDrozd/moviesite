@@ -1,6 +1,23 @@
-export interface TvInterface {
-    page: string,
-    total_pages: string
-    total_results: string
-    results: []
+export class ITv {
+    page: number;
+    results: IFilm[] = [];
+    total_pages: number;
+    total_results: number;
+}
+
+interface IFilm {
+    adult: boolean,
+    backdrop_path: string,
+    genre_ids: [],
+    id: number,
+    original_language: string,
+    original_title: string,
+    overview: string,
+    popularity: number,
+    poster_path: string,
+    release_date: string,
+    title: string,
+    video: boolean,
+    vote_average: number,
+    vote_count: number
 }

@@ -1,9 +1,17 @@
 
 <div class="container">
-  <div class="card" *ngFor="let movie of getMovies.results">
+  <div class="card" *ngFor="let movie of moviesData.results">
       <img src="https://image.tmdb.org/t/p/w300/{{movie.poster_path}}" alt="Denim Jeans" style="width:100%">
       <h1 class="card-title">{{movie.title}}</h1>
       <p class="cart-rating">Rating: {{movie.vote_average}}</p>
       <p class="card-more-information"><button>More information</button></p>
   </div>
 </div>
+
+<app-paginator 
+  [currentPage]="currentPage"
+  [totalPages]="totalPages"
+  (goPrev)="onPrev()"
+  (goNext)="onNext()"
+>
+</app-paginator>

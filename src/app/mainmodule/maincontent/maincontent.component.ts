@@ -1,20 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { TVService } from '../TV.service';
 
-import { TvInterface } from '../interfaces/tv-interface';
+import { ITv } from '../interfaces/tv-interface';
 
 @Component({
   selector: 'app-maincontent',
   templateUrl: './maincontent.component.html',
   styleUrls: ['./maincontent.component.scss']
 })
-export class MaincontentComponent implements OnInit {
+export class MaincontentComponent implements OnInit, OnDestroy {
   private sub: any;
-  private paramId: string;
+  currentPage: number;
+  totalPages: string;
 
+  arrayOfPaginator: Array<any> = [];
 
-  private getMovies: Array<TvInterface[]> = [];
+  private moviesData: ITv = new ITv();
 
   constructor(
     private route: ActivatedRoute,
@@ -24,10 +26,35 @@ export class MaincontentComponent implements OnInit {
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
       this.tvService.getTVShowByGenre(params.id).subscribe(data => {
-        this.getMovies = data;
-        console.log(this.getMovies);
+        this.moviesData = data;
+        this.currentPage = data.page;
+        this.totalPages = data.total_pages;
       });
     });
+  }
+
+  onPrev() {
+    this.route.params.subscribe(params => {
+      this.tvService.getTVShowByGenre(params.id, this.currentPage - 1).subscribe(data => {
+        this.moviesData = data;
+        this.currentPage = data.page;
+        this.totalPages = data.total_pages;
+      });
+    });
+  }
+
+  onNext() {
+    this.route.params.subscribe(params => {
+      this.tvService.getTVShowByGenre(params.id, this.currentPage + 1).subscribe(data => {
+        this.moviesData = data;
+        this.currentPage = data.page;
+        this.totalPages = data.total_pages;
+      });
+    });
+  }
+
+  ngOnDestroy() {
+    this.sub.unsubscribe();
   }
 
 }
