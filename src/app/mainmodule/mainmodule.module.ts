@@ -12,6 +12,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { MaincontentComponent } from './maincontent/maincontent.component';
 import { MainComponent } from './main.component';
 import { ShareModule } from '../share/share.module';
+import { BrowserModule } from '@angular/platform-browser';
 
 @NgModule({
   declarations: [

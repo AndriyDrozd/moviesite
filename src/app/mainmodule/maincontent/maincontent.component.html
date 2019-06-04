@@ -11,7 +11,6 @@
 <app-paginator 
   [currentPage]="currentPage"
   [totalPages]="totalPages"
-  (goPrev)="onPrev()"
-  (goNext)="onNext()"
+  (onChangePage)="onChangePage($event)"
 >
 </app-paginator>

@@ -33,19 +33,9 @@ export class MaincontentComponent implements OnInit, OnDestroy {
     });
   }
 
-  onPrev() {
+  onChangePage(event: any) {
     this.route.params.subscribe(params => {
-      this.tvService.getTVShowByGenre(params.id, this.currentPage - 1).subscribe(data => {
-        this.moviesData = data;
-        this.currentPage = data.page;
-        this.totalPages = data.total_pages;
-      });
-    });
-  }
-
-  onNext() {
-    this.route.params.subscribe(params => {
-      this.tvService.getTVShowByGenre(params.id, this.currentPage + 1).subscribe(data => {
+      this.tvService.getTVShowByGenre(params.id, event).subscribe(data => {
         this.moviesData = data;
         this.currentPage = data.page;
         this.totalPages = data.total_pages;

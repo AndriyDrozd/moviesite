@@ -1,6 +1,13 @@
 <div class="pagination">
   <span>{{ totalPages }} </span>
-  <button (click)="onPrev()">Previous</button>
-  <!-- <button *ngFor="let pageNum of getPages()" (click)="onPage(pageNum)"></button> -->
-  <button (click)="onNext()" >Next</button>
+  <button (click)="changePage('firstPage')">First page</button>
+  <button (click)="changePage('previousPage')">Previous</button>
+  <button 
+  *ngFor="let pageNum of arrayOfPages" 
+  (click)="changePage('currentPage', pageNum)"
+  >
+  {{pageNum}}
+  </button>
+  <button (click)="changePage('nextPage')" >Next</button>
+  <button (click)="changePage('lastPage')">Last page</button>
 </div>

@@ -12,7 +12,7 @@ import { PaginatorComponent } from './paginator/paginator.component';
     PaginatorComponent
   ],
   imports: [
-
+    CommonModule
   ],
   providers: [],
   exports: [
