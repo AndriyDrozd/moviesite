@@ -1,13 +1,6 @@
-$base-margin-top: 0px;
-
-:export {
-    base-margin-top: $base-margin-top
-}
-
 
 .pagination {
     width: 460px;
-    margin-top: $base-margin-top;
 
     button {
         height: 30px;
