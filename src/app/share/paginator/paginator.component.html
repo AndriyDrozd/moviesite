@@ -1,8 +1,16 @@
-<div class="pagination">
-  <span>{{ totalPages }} </span>
+<div class="pagination" 
+[ngStyle]="{
+  'margin-top': marginTop +'px',
+  'margin-left': marginLeft +'px',
+  'margin-bottom': marginBottom +'px'
+  }">
   <button (click)="changePage('firstPage')">First page</button>
   <button (click)="changePage('previousPage')">Previous</button>
   <button 
+  class="pagination__current-page"
+  [ngClass]="{
+    'active':pageNum === currentPage
+  }"
   *ngFor="let pageNum of arrayOfPages" 
   (click)="changePage('currentPage', pageNum)"
   >

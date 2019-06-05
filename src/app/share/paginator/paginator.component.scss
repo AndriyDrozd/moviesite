@@ -1,0 +1,40 @@
+$base-margin-top: 0px;
+
+:export {
+    base-margin-top: $base-margin-top
+}
+
+
+.pagination {
+    width: 460px;
+    margin-top: $base-margin-top;
+
+    button {
+        height: 30px;
+        border: 0.5px solid;
+        background-color: inherit;
+        cursor: pointer;
+
+        &:first-child {
+            border-radius: 4px 0px 0px 4px;
+        }
+
+        &:last-child {
+            border-radius: 0px 4px 4px 0px;
+        }
+
+        &:hover {
+            background: #00BFFF;
+        }
+    }
+
+}
+
+.pagination__current-page {
+    width: 30px;
+    height: 30px;
+}
+
+.active {
+    background-color:  #00BFFF !important;
+}

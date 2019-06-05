@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter, AfterViewInit, AfterContentInit, AfterContentChecked } from '@angular/core';
 
+
 @Component({
   selector: 'app-paginator',
   templateUrl: './paginator.component.html',
@@ -11,8 +12,10 @@ export class PaginatorComponent implements OnInit, AfterContentChecked {
 
   @Input() currentPage: number;
   @Input() totalPages: number;
+  @Input() marginTop: number;
+  @Input() marginLeft: number;
+  @Input() marginBottom: number;
 
-  
   @Output() onChangePage = new EventEmitter<number>();
 
   constructor() { }
@@ -23,7 +26,7 @@ export class PaginatorComponent implements OnInit, AfterContentChecked {
 
   ngAfterContentChecked() {
     this.arrayOfPages = this.getPages();
-    console.log(this.arrayOfPages);
+    
   }
 
   changePage(kindOperation: string, currentPage?: number) {
@@ -66,5 +69,11 @@ export class PaginatorComponent implements OnInit, AfterContentChecked {
     }
 
     return arr;
+  }
+
+  readProperty(name: number) {
+    let bodyStyles = window.getComputedStyle(document.body);
+    // return bodyStyles.getPropertyValue(PREFIX + name);
+    console.log(bodyStyles);
   }
 }

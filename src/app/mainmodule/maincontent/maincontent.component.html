@@ -8,7 +8,11 @@
   </div>
 </div>
 
-<app-paginator 
+<app-paginator
+  class="paginator"
+  [marginTop]="100"
+  [marginLeft]="560"
+  [marginBottom]="100"
   [currentPage]="currentPage"
   [totalPages]="totalPages"
   (onChangePage)="onChangePage($event)"
