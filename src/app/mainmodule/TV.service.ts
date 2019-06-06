@@ -27,4 +27,8 @@ export class TVService {
     return this.http.get(`${this.baseUrl}discover/movie?api_key=${this.apiKey}&language=en-US&sort_by=popularity.desc&page=${pageNumber}&timezone=America%2FNew_York&with_genres=${id}&include_null_first_air_dates=false`);
   }
 
+  getMovieReviews(id: string): Observable<any> {
+    return this.http.get(`${this.baseUrl}review/${id}/?api_key=${this.apiKey}`);
+  }
+
 }

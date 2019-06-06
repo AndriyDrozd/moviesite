@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { MainComponent } from './main.component';
 import { MaincontentComponent } from './maincontent/maincontent.component';
+import { MoreinformationComponent } from './moreinformation/moreinformation.component';
 
 
 
@@ -12,6 +13,10 @@ const routes: Routes = [
       {
         path: ':id',
         component: MaincontentComponent
+      },
+      {
+        path: ':id/:name',
+        component: MoreinformationComponent
       }
     ]
 

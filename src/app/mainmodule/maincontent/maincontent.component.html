@@ -4,7 +4,13 @@
       <img src="https://image.tmdb.org/t/p/w300/{{movie.poster_path}}" alt="Denim Jeans" style="width:100%">
       <h1 class="card-title">{{movie.title}}</h1>
       <p class="cart-rating">Rating: {{movie.vote_average}}</p>
-      <p class="card-more-information"><button>More information</button></p>
+      <p class="card-more-information">
+        <button
+        (click)="sendFilmInfo(movie)"
+        [routerLink]="[movie.title]"
+        >More information
+      </button>
+      </p>
   </div>
 </div>
 

@@ -5,7 +5,7 @@ export class ITv {
     total_results: number;
 }
 
-interface IFilm {
+export interface IFilm {
     adult: boolean,
     backdrop_path: string,
     genre_ids: [],
