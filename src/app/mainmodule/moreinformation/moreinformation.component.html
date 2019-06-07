@@ -1,3 +1,14 @@
-<p>
-  moreinformation works!
-</p>
+<div class="container">
+  <div class="main-content">
+    <div class="main-content_photo">
+      <img src="https://image.tmdb.org/t/p/w300/{{filmData.poster_path}}" alt="">
+    </div>
+    <div class="main-content_film-description">
+      <h2 class="main-content_film-description-title">{{filmData.original_title}}</h2>
+      <span class="">Average: {{filmData.vote_average}} ({{filmData.vote_count}})</span>
+      <span>Tagline: '{{filmData.tagline}}'</span>
+      <span>Status: {{filmData.status}}</span>
+      <span>Release date: {{filmData.release_date}}</span>
+    </div>
+  </div>
+</div>

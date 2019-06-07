@@ -1,0 +1,38 @@
+
+.container {
+    margin-top: 20px;
+    margin-left: 48px;
+
+    .main-content {
+        display: flex;
+
+
+        .main-content_photo {
+            flex-basis: 35vw;
+            
+            img {
+                width: 400px;
+                height: 650px;
+            }
+        }
+
+        .main-content_film-description {
+            flex-basis: 65vw;
+            flex-wrap: wrap;
+            display: flex;
+            flex-direction: column;
+
+            .main-content_film-description-title {
+                display: flex;
+                justify-content: center;
+                margin-top: 0;
+                font-size: 30px;
+            }
+
+            span {
+                margin-top: 20px; 
+            }
+        }
+    }
+
+}

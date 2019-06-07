@@ -4,7 +4,7 @@ import { Observable, Subject } from 'rxjs';
 import { map, tap, takeUntil} from 'rxjs/operators';
 
 import { TVService } from '../TV.service';
-import { IFilm } from '../interfaces/tv-interface';
+import { IFilmDetails } from '../interfaces/tv-interface';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/app.state';
 
@@ -16,6 +16,8 @@ import { AppState } from 'src/app/app.state';
 export class MoreinformationComponent implements OnInit, OnDestroy {
   private ngDestroyed$ = new Subject();
 
+  private filmData: IFilmDetails = new IFilmDetails();
+
   constructor(
     private route: ActivatedRoute,
     private tvService: TVService,
@@ -23,10 +25,11 @@ export class MoreinformationComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
-    this.store.select('filmInfo').pipe(takeUntil(this.ngDestroyed$))
-    .subscribe(data => {
-      console.log(data);
-    });
+      this.tvService.getMovieReviews(this.route.snapshot.params['id']).pipe(takeUntil(this.ngDestroyed$)).
+      subscribe(data => {
+        this.filmData = data;
+        console.log(this.filmData);
+      });
   }
 
   ngOnDestroy() {

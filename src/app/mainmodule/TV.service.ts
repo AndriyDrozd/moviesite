@@ -28,7 +28,7 @@ export class TVService {
   }
 
   getMovieReviews(id: string): Observable<any> {
-    return this.http.get(`${this.baseUrl}review/${id}/?api_key=${this.apiKey}`);
+    return this.http.get(`https://api.themoviedb.org/3/movie/${id}?api_key=${this.apiKey}&language=en-US`);
   }
 
 }

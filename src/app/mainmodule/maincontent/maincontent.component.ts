@@ -4,9 +4,10 @@ import { TVService } from '../TV.service';
 import { Store } from '@ngrx/store';
 
 import { ITv } from '../interfaces/tv-interface';
-import { IFilm } from '../interfaces/tv-interface';
 import { AppState } from 'src/app/app.state';
 import * as ParamsDataActions from '../actions/film-data.actions';
+import { Subject } from 'rxjs';
+import { map, tap, takeUntil} from 'rxjs/operators';
 
 @Component({
   selector: 'app-maincontent',
@@ -14,7 +15,8 @@ import * as ParamsDataActions from '../actions/film-data.actions';
   styleUrls: ['./maincontent.component.scss']
 })
 export class MaincontentComponent implements OnInit, OnDestroy {
-  private sub: any;
+  private ngDestroyed$ = new Subject();
+
   private currentPage: number;
   private totalPages: string;
   private paramId: number;
@@ -30,9 +32,10 @@ export class MaincontentComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
-    this.sub = this.route.params.subscribe(params => {
+    this.route.params.pipe(takeUntil(this.ngDestroyed$)).subscribe(params => {
       this.paramId = params.id;
-      this.tvService.getTVShowByGenre(params.id).subscribe(data => {
+      this.tvService.getTVShowByGenre(params.id).pipe(takeUntil(this.ngDestroyed$))
+      .subscribe(data => {
         this.moviesData = data;
         this.currentPage = data.page;
         this.totalPages = data.total_pages;
@@ -41,8 +44,9 @@ export class MaincontentComponent implements OnInit, OnDestroy {
   }
 
   onChangePage(event: any) {
-    this.route.params.subscribe(params => {
-      this.tvService.getTVShowByGenre(params.id, event).subscribe(data => {
+    this.route.params.pipe(takeUntil(this.ngDestroyed$)).subscribe(params => {
+      this.tvService.getTVShowByGenre(params.id, event).pipe(takeUntil(this.ngDestroyed$)).
+      subscribe(data => {
         this.moviesData = data;
         this.currentPage = data.page;
         this.totalPages = data.total_pages;
@@ -50,12 +54,8 @@ export class MaincontentComponent implements OnInit, OnDestroy {
     });
   }
 
-  sendFilmInfo(movieData: IFilm) {
-    this.store.dispatch(new ParamsDataActions.AddParamInfo(movieData));
-  }
-
   ngOnDestroy() {
-    this.sub.unsubscribe();
+    this.ngDestroyed$.next(true);
   }
 
 }

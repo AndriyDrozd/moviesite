@@ -15,7 +15,7 @@ const routes: Routes = [
         component: MaincontentComponent
       },
       {
-        path: ':id/:name',
+        path: ':id/:id',
         component: MoreinformationComponent
       }
     ]
