@@ -1,14 +1,23 @@
 <div class="container">
+  <h2 class="container-title">{{filmData.original_title}}</h2>
   <div class="main-content">
     <div class="main-content_photo">
       <img src="https://image.tmdb.org/t/p/w300/{{filmData.poster_path}}" alt="">
     </div>
-    <div class="main-content_film-description">
-      <h2 class="main-content_film-description-title">{{filmData.original_title}}</h2>
-      <span class="">Average: {{filmData.vote_average}} ({{filmData.vote_count}})</span>
-      <span>Tagline: '{{filmData.tagline}}'</span>
+    <div class="main-content_film-description" style="display: flex;">
+      <span class="">Average: 
+        <span [ngClass]="{
+        'greenRating': setColor === 'green',
+        'yellowRating': setColor === 'yellow',
+        'redRating': setColor === 'red'
+      }">{{filmData.vote_average}}</span> ({{filmData.vote_count}})</span>
+      <span>Tagline: "{{filmData.tagline}}"</span>
       <span>Status: {{filmData.status}}</span>
       <span>Release date: {{filmData.release_date}}</span>
+      <span>Genre: <a routerLink="/s/{{genre.id}}" *ngFor="let genre of filmData.genres">{{genre.name}}</a></span>
+      <span>Overview: "{{filmData.overview}}"</span>
+      <span>Budget: {{filmData.budget}}</span>
+      <span>Runtime: {{filmData.runtime}}</span>
     </div>
   </div>
 </div>

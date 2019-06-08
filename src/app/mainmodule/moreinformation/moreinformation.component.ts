@@ -16,6 +16,8 @@ import { AppState } from 'src/app/app.state';
 export class MoreinformationComponent implements OnInit, OnDestroy {
   private ngDestroyed$ = new Subject();
 
+  private setColor: string = '';
+
   private filmData: IFilmDetails = new IFilmDetails();
 
   constructor(
@@ -29,6 +31,13 @@ export class MoreinformationComponent implements OnInit, OnDestroy {
       subscribe(data => {
         this.filmData = data;
         console.log(this.filmData);
+        if(this.filmData.vote_average >= 7) {
+          this.setColor = 'green';
+        } else if(this.filmData.vote_average >= 4 && this.filmData.vote_average < 7) {
+          this.setColor = 'yellow';
+        } else {
+          this.setColor = 'red';
+        }
       });
   }
 

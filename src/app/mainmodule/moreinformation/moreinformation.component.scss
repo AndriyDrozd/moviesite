@@ -3,6 +3,13 @@
     margin-top: 20px;
     margin-left: 48px;
 
+    .container-title {
+        display: flex;
+        justify-content: center;
+        margin-top: 0;
+        font-size: 30px;
+    }
+
     .main-content {
         display: flex;
 
@@ -22,17 +29,37 @@
             display: flex;
             flex-direction: column;
 
-            .main-content_film-description-title {
-                display: flex;
-                justify-content: center;
-                margin-top: 0;
-                font-size: 30px;
-            }
-
             span {
-                margin-top: 20px; 
+                margin-top: 20px;
+
+                a {
+                    margin-left: 10px;
+                    padding: 10px;
+                    background-color: #39CCCC;
+                    border-radius: 3px; 
+
+                    &:first-child {
+                        margin-left: 0px;
+                    }
+                }
+
+                &:first-child {
+                    margin-top: 0px; 
+                }
             }
         }
     }
 
+}
+
+.greenRating {
+    color: green;
+}
+
+.yellowRating {
+    color: yellow;
+}
+
+.redRating {
+    color: red;
 }
