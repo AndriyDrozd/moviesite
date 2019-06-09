@@ -56,24 +56,24 @@ export class PaginatorComponent implements OnInit, AfterContentChecked {
             arr.push(i);
           }
         } else {
-          for(let i = this.currentPage; i < this.currentPage + 4; i++) {
-            arr.push(i);
-          }
-  
-          for(let i = this.currentPage; i > this.currentPage - 4; i--) {
-            if(!arr.includes(i)) {
-              arr.unshift(i);
+          if(this.currentPage + 4 >= this.totalPages) {
+            for(let i = this.totalPages; i > this.totalPages - 7; i--) {
+                arr.unshift(i);
+            }
+          } else {
+            for(let i = this.currentPage; i < this.currentPage + 4; i++) {
+              arr.push(i);
+            }
+
+            for(let i = this.currentPage; i > this.currentPage - 4; i--) {
+              if(!arr.includes(i)) {
+                arr.unshift(i);
+              }
             }
           }
         }
     }
 
     return arr;
-  }
-
-  readProperty(name: number) {
-    let bodyStyles = window.getComputedStyle(document.body);
-    // return bodyStyles.getPropertyValue(PREFIX + name);
-    console.log(bodyStyles);
   }
 }

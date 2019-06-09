@@ -14,14 +14,13 @@
     color: #CCCCCC;
     border-left: 5px solid #2b2b2b;
 
-    a {
-        color: #cccccc;
-        text-decoration: none;
-    }
-
     &:hover {
         background-color: #222;
         border-left: 5px solid red;
+    }
+
+    &:active, &:focus {
+        outline: none;
     }
 }
 

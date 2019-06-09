@@ -8,8 +8,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-  getTvGenres = [];
-  // @LocalStorage() = genres;
+  private getTvGenres = [];
 
   constructor(
     private tvService: TVService

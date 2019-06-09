@@ -4,8 +4,8 @@
   'margin-left': marginLeft +'px',
   'margin-bottom': marginBottom +'px'
   }">
-  <button (click)="changePage('firstPage')">First page</button>
-  <button (click)="changePage('previousPage')">Previous</button>
+  <button (click)="changePage('firstPage')" [disabled]="currentPage ===1">First page</button>
+  <button (click)="changePage('previousPage')" [disabled]="currentPage === 1">Previous</button>
   <button 
   class="pagination__current-page"
   [ngClass]="{
@@ -16,6 +16,6 @@
   >
   {{pageNum}}
   </button>
-  <button (click)="changePage('nextPage')" >Next</button>
-  <button (click)="changePage('lastPage')">Last page</button>
+  <button (click)="changePage('nextPage')" [disabled]="totalPages === currentPage">Next</button>
+  <button (click)="changePage('lastPage')" [disabled]="totalPages === currentPage">Last page</button>
 </div>

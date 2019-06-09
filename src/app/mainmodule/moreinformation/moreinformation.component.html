@@ -14,7 +14,7 @@
       <span>Tagline: "{{filmData.tagline}}"</span>
       <span>Status: {{filmData.status}}</span>
       <span>Release date: {{filmData.release_date}}</span>
-      <span>Genre: <a routerLink="/s/{{genre.id}}" *ngFor="let genre of filmData.genres">{{genre.name}}</a></span>
+      <span>Genre: <a routerLink="/films/{{genre.id}}" *ngFor="let genre of filmData.genres">{{genre.name}}</a></span>
       <span>Overview: "{{filmData.overview}}"</span>
       <span>Budget: {{filmData.budget}}</span>
       <span>Runtime: {{filmData.runtime}}</span>
